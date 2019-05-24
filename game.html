@@ -1,0 +1,82 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        /* CSS */
+        body {
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(253, 110, 134);
+        }
+        #player {
+            position: relative;
+            background-color: lightpink;
+            height: 20px;
+            width: 20px;
+
+        }    
+        #gameMap {
+            border: 1px solid black;
+            height: 200px;
+            width: 200px;
+
+        }
+        /* END CSS */
+    </style>
+</head>
+<body>
+    <!-- HTML -->
+    <div id="gameMap">
+        <div id="player"></div>
+    </div>
+    <!-- END HTML -->
+</body>
+<script>
+    // JAVASCRIPT
+    $(document).ready(function() {
+        var playerX = 0;
+        var playerY = 0;
+
+
+	    $(document).keydown(function(e) {
+		    var keyPressed = e.key;
+		    if (keyPressed == "d"){
+                if (playerX >=180){
+                    return;
+                }
+                playerX += 1;
+                $("#player").css("left", playerX);
+                console.log(playerX + ", " + playerY);
+			
+		    }
+            if (keyPressed == "a"){
+                if (playerX <1){
+                    return;
+                }
+                playerX += -1;
+                $("#player").css("left", playerX);
+                console.log(playerX + ", " + playerY);
+
+            }
+            if (keyPressed == "w"){
+                if (playerY <1){
+                    return;
+                }
+                playerY += -1;
+                $("#player").css("top", playerY);
+                console.log(playerX + ", " + playerY);
+
+            }
+            if (keyPressed == "s"){
+                if (playerY >=180){
+                    return;
+                }
+                playerY += 1;
+                $("#player").css("top", playerY);
+                console.log(playerX + ", " + playerY);
+            }
+        });
+    });
+    // END JAVASCRIPT
+</script>
+</html>
