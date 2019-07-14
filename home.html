@@ -4,28 +4,67 @@
     <style>
         /* CSS */
         body {
-            background-color: lightblue;
+            background-color: rgb(215, 241, 252);
             font-family: Arial, Helvetica, sans-serif;
             color: rgb(253, 110, 134);
+            padding: 10px;
+        }
+        .blogImage {
+            margin: 10px; 
+            width:200px; 
+            border: 1px solid white;
+        }
+        .blogPost {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            border-left: 2px solid  rgb(253, 110, 134);
         }    
         /* END CSS */
     </style>
 </head>
 <body>
     <!-- HTML -->
-    <h1>Brenna's Site - Home</h1>
-    <a href="home.html">Home</a>
-    <a href="bunnies.html">Bunnies</a>
-    <a href="kitties.html">Kitties</a>
-    <a href="puppies.html">Puppies</a>
-    <a href="game.html" target="_blank">Game</a>
-    <br>
-    <br>
-    <div>Hi Friends! Welcome to my website!</div>
+    <h1>Brenna & Ilya</h1>
+    <div id= "blogPosts">
+    </div>
     <!-- END HTML -->
 </body>
 <script>
     // JAVASCRIPT
+    var db={
+        "posts": [
+            {
+                "title": "4th of July",
+                "date": "07/04/2019",
+                "content": "Fireworks over the water. <3 ",
+                "images": [
+                    "img/Fireworks.jpg", 
+                    "img/4th of July.jpg"
+                ]
+            },
+            {
+                "title": "The Seal",
+                "date": "07/04/2019",
+                "content": "The seal that wouldn't shut up.",
+                "images": [
+                    "img/The Seal.jpg"
+                ]
+            }
+        ]
+    };
+    for (var i = 0; i < db.posts.length; i++) { 
+        var post= db.posts[i];
+        $("#blogPosts").append(`
+        <div class= "blogPost">
+            <h1>${post.title}</h1> 
+            <p>${post.date}</p>
+            <img src="${post.images[0]}" class= "blogImage"/>
+            <p>${post.content}</p>
+        </div>
+    `);
+    }
     // END JAVASCRIPT
 </script>
 </html>

@@ -1,0 +1,21 @@
+{
+    "posts": [
+        {
+            "title": "4th of July",
+            "date": "07/04/2019",
+            "content": "Fireworks over the water. <3 ",
+            "images": [
+                "img/Fireworks.jpg", 
+                "img/4th of July.jpg"
+            ]
+        },
+        {
+            "title": "The Seal",
+            "date": "07/04/2019",
+            "content": "The seal that wouldn't shut up.",
+            "images": [
+                "img/The Seal.jpg"
+            ]
+        }
+    ]
+}
