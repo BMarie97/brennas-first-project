@@ -4,10 +4,10 @@
     <style>
         /* CSS */
         body {
-            background-color: rgb(215, 241, 252);
+            background-color: rgb(247, 247, 247);
             font-family: Arial, Helvetica, sans-serif;
-            color: rgb(253, 110, 134);
-            padding: 10px;
+            color: rgb(253, 178, 191);
+            
         }
         .blogImage {
             margin: 10px; 
@@ -15,18 +15,32 @@
             border: 1px solid white;
         }
         .blogPost {
-            background-color: lightblue;
+            background-color: rgb(20, 21, 58);
             padding: 10px;
             margin: 10px;
             display: inline-block;
-            border-left: 2px solid  rgb(253, 110, 134);
+            border-left: 5px solid  rgb(253, 178, 191);
+            min-width: 500px;
+        }
+        #navbar {
+            background-color:rgb(0, 0, 0);
+            margin: 0px;
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            padding: 10px;
+        }
+        #navbarDeadspace {
+            height: 100px;
         }    
         /* END CSS */
     </style>
 </head>
 <body>
     <!-- HTML -->
-    <h1>Brenna & Ilya</h1>
+    <div id= "navbar"><h1>Brenna & Ilya</h1></div>
+    <div id= "navbarDeadspace"></div>
     <div id= "blogPosts">
     </div>
     <!-- END HTML -->
@@ -34,21 +48,21 @@
 <script>
     // JAVASCRIPT
     var db={
-        "posts": [
+        posts: [
             {
-                "title": "4th of July",
-                "date": "07/04/2019",
-                "content": "Fireworks over the water. <3 ",
-                "images": [
+                title: "4th of July",
+                date: "07/04/2019",
+                content: "Fireworks over the water. <3 ",
+                images: [
                     "img/Fireworks.jpg", 
                     "img/4th of July.jpg"
                 ]
             },
             {
-                "title": "The Seal",
-                "date": "07/04/2019",
-                "content": "The seal that wouldn't shut up.",
-                "images": [
+                title: "The Seal",
+                date: "07/04/2019",
+                content: "The seal that wouldn't shut up.",
+                images: [
                     "img/The Seal.jpg"
                 ]
             }
@@ -56,14 +70,23 @@
     };
     for (var i = 0; i < db.posts.length; i++) { 
         var post= db.posts[i];
-        $("#blogPosts").append(`
-        <div class= "blogPost">
+        var htmlString= `
+            <div class= "blogPost">
             <h1>${post.title}</h1> 
             <p>${post.date}</p>
-            <img src="${post.images[0]}" class= "blogImage"/>
+        `;
+        for (var j = 0; j < post.images.length; j++) { 
+            var htmlString2=`
+                <img src="${post.images[j]}" class= "blogImage"/>
+            `;
+            htmlString+= htmlString2;
+        }
+        var htmlString3= `
             <p>${post.content}</p>
-        </div>
-    `);
+            </div>
+        `;
+        htmlString+= htmlString3;
+        $("#blogPosts").append(htmlString);
     }
     // END JAVASCRIPT
 </script>
